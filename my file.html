@@ -1,0 +1,208 @@
+<html>
+    <head>
+        <style>
+    
+            h1, body {
+                color: white;
+                text-align: center;
+                font-family: Helvetica;
+                /* align-items: center;  */
+                /* justify-content: center;  */
+            } 
+
+            body {
+                background-color: pink;
+            }
+
+            h1 {
+                color: blueviolet;
+            }
+
+            button {
+                /* display: block; */
+                color: white;
+                margin-top: 10px;
+                background-color: rgb(221, 17, 201);
+                font-size: 12px;
+                border-radius: 4px;
+                border: 1px solid rgb(219, 32, 201);
+                transition-duration: 0.4s;
+                cursor: pointer;
+                padding: 5px 15px;
+            }
+            button:hover {
+                background-color: rgb(144, 24, 132);
+
+            }
+        /* <!-- <link rel="stylesheet" href="index.css"> --> */
+
+        </style> 
+    </head>
+
+
+    <body>
+        <a href="https://www.google.com">google</a>
+
+        <button onclick="goToLink(this)" value="https://www.google.com"> Google </button>
+        <button onclick="goToLink(this)" value="https://www.shopee.com"> Shopee </button>
+        <button onclick="goToLink(this)" value="https://www.amazon.com"> Amazon </button>
+       <div>
+        <button onclick="goToLink(this)" value="https://lookerstudio.google.com/u/0/reporting/5fc3cc28-10b0-4b92-9dd2-aa22ff7560b4/page/p_6tpqj1k0ad"> CJ 5.1 </button>
+        <button onclick="goToLink(this)" value="https://www.moon2mar.com/"> Moon 2 mar </button>
+        <button onclick="goToLink(this)" value="https://www.martian.ltd/"> Mars </button>
+       
+        
+       </div>
+        
+        <div>
+            <button onclick="goToLink(this)" value="https://www.w3schools.com/js/js_regexp.asp"> js regex </button>
+            <button onclick="goToLink(this)" value="https://www.w3schools.com/css/css3_buttons.asp"> CSS button </button>
+            
+        </div>      
+        
+        <script>
+            // Q1.find even number and sum total all number
+            function magic(...nums) {
+                let sum = 0;
+                nums.filter(n => n % 2 == 0).map(el => sum += el);
+                return sum;
+            }
+            console.log('test')
+            console.log(magic(1,2,3,4,5,6))
+
+            /*
+            // Q2.1  add missing number (null)  to sum with the group
+            function myFunction( w,x,y,z){
+                console.log("Q2 = " );
+                console.log(w + x + y +z);
+            };
+            var args = [1,2];
+            myFunction.apply(null,args.concat(10,1)); 
+            */
+            
+            /*
+            // Q2.2  add missing number (null)  to sum with the group (ES6)
+            const myFunction2 = (w,x,y,z) => {
+                console.log(w + x + y +z);
+            };
+            let args = [1,2];
+            myFunction2(...args,4,3);
+            */
+            
+            /*
+            // before ES6
+            var arr = ["One", "Two", "Five"];
+            arr.splice(2,0,"4")
+            arr.splice(3,0,"5")
+            console.log(arr)
+            */
+
+            /*
+            // after ES6
+            let newArr = ['Three', 'Four', 'five'];
+            let arr = ['1','2','3', ...newArr, "aha"]
+            console.log(arr)
+            */
+
+            const obj1 = {myName: 'emma', x : 45};
+            const obj2 = {mySecondName : 'amy' , y: 23};
+
+            const cloneObj = { ...obj1};
+            const mergeObj = {...obj1,...obj2};
+            console.log(cloneObj);
+            console.log(mergeObj);
+
+
+
+
+
+        </script>
+        
+        <script>
+            function goToLink(Link) {
+                console.log(Link.value);
+                // location.href = Link.value;
+                window.open(Link.value);
+            }
+        </script>
+
+        <div class="container">
+            <h1> Moon2Mar </h1>
+            <h2> we provide advance analytics and technology to business </h2>
+        </div>
+
+        <div>
+            <input type="number" id="ageInput" placeholder="Enter your age">
+            <button id="button_1" onclick="checkAge()"> Check discount </button>
+        </div>
+
+        <div>
+            <input type="number" id="roundInput" placeholder="Enter total test round">
+            <button id="button_2" onclick="runRound()"> Run </button>            
+        </div>
+
+        <div>
+            <button id="button_3" onclick="countName(student)" > Count student name </button>
+        </div>
+           
+
+        <h3> we recommend you to <br>
+            xxxxxxxxxxxxxxxxxxxxxxx <br>
+            xxxxxxxxxxxxxxxxxxxxxxx <br>
+            xxxxxxxxxxxxxxxxxxxxxxx <br>
+            xxxxxxxxxxxxxxxxxxxxxxx <br>
+        </h3>
+
+        
+
+        <img src="./logo moon2mar.jpeg" alt="m2m"  height="150">
+
+        
+        <script>
+            function checkAge() {
+                let age = document.getElementById("ageInput").value;
+                if (age < 18) {
+                    alert("you get discount ")
+                }
+                else {
+                    alert("sorry, no discount")
+                }
+            }
+            function runRound() {
+                let round = document.getElementById("roundInput").value;
+                while (round > 0) {
+                    alert("round: " + round)
+                    round = round - 1
+                }
+            }
+            const student = [
+                {name: "emma"},
+                {name: "markie"},
+                {name: "mega"},
+                {name: "angel"}
+            ];
+            function countName(studentList) {
+                // let name = document.getElementById("nameInput").value;
+                for (let i = 0; i < studentList.length; i++) {
+                    alert("student: " + (i+1) +" "+ studentList[i].name)
+
+                }
+            }
+            
+            // practice regEx search and replace , search return the position in number form
+            // /xxx/i case insensitive
+            // /xxx/g match all
+            let text = "hello my friend, today is quite hot, and we have fun even it is very hot";
+            let regEx = /t+/g
+            let newText = "cold"
+            let result = text.replace(regEx,newText)
+            
+            console.log("original = " + text)
+            console.log("replace = " + result)
+            // check if there is /z/ in text , return T/F
+            console.log(/z/.test(text))
+
+        </script>
+        
+    </body>
+</html>
